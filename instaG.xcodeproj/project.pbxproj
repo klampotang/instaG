@@ -15,6 +15,7 @@
 		8886AA021D1890F4008985E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8886AA001D1890F4008985E9 /* LaunchScreen.storyboard */; };
 		8886AA0A1D1894D9008985E9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886AA091D1894D9008985E9 /* LoginViewController.swift */; };
 		8886AA0C1D18AE3E008985E9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886AA0B1D18AE3E008985E9 /* FeedViewController.swift */; };
+		8886AA0E1D191468008985E9 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886AA0D1D191468008985E9 /* UploadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8886AA031D1890F4008985E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8886AA091D1894D9008985E9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8886AA0B1D18AE3E008985E9 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		8886AA0D1D191468008985E9 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		9984DBC2CC0DA5CF16B8B65C /* Pods-instaG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instaG.release.xcconfig"; path = "Pods/Target Support Files/Pods-instaG/Pods-instaG.release.xcconfig"; sourceTree = "<group>"; };
 		E67F162DABE208159D82835D /* Pods-instaG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instaG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instaG/Pods-instaG.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 				8886AA001D1890F4008985E9 /* LaunchScreen.storyboard */,
 				8886AA031D1890F4008985E9 /* Info.plist */,
 				8886AA0B1D18AE3E008985E9 /* FeedViewController.swift */,
+				8886AA0D1D191468008985E9 /* UploadViewController.swift */,
 			);
 			path = instaG;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8886AA0A1D1894D9008985E9 /* LoginViewController.swift in Sources */,
+				8886AA0E1D191468008985E9 /* UploadViewController.swift in Sources */,
 				8886A9FA1D1890F4008985E9 /* ViewController.swift in Sources */,
 				8886AA0C1D18AE3E008985E9 /* FeedViewController.swift in Sources */,
 				8886A9F81D1890F4008985E9 /* AppDelegate.swift in Sources */,

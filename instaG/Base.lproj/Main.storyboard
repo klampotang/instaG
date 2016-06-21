@@ -96,7 +96,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.88976362180000002" green="0.76822406009999999" blue="0.79877185360000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Log Out" id="KOB-QJ-mSz"/>
+                    <tabBarItem key="tabBarItem" title="Log Out" image="LogOut" id="KOB-QJ-mSz"/>
                     <navigationItem key="navigationItem" id="6pS-yI-Wbn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -113,7 +113,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" id="ynX-9w-brQ"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="Feed" id="ynX-9w-brQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kiA-EV-RxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,17 +122,37 @@
         <!--Upload-->
         <scene sceneID="SQa-As-57j">
             <objects>
-                <viewController id="0ba-wP-nDT" sceneMemberID="viewController">
+                <viewController id="0ba-wP-nDT" customClass="UploadViewController" customModule="instaG" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kxd-2A-G7c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="bcV-ms-z29">
+                                <rect key="frame" x="67" y="98" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qmb-UX-ZOh">
+                                <rect key="frame" x="67" y="98" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Tap to take a picture">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="imageFieldTapped:" destination="0ba-wP-nDT" eventType="touchUpInside" id="d1h-9f-kkD"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Upload" id="jUs-4f-l6O"/>
+                    <tabBarItem key="tabBarItem" title="Upload" image="Upload" id="jUs-4f-l6O"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="cameraImage" destination="bcV-ms-z29" id="vXs-sF-KNv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtI-g3-wkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1075" y="971"/>
+            <point key="canvasLocation" x="1074.5" y="970.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="csD-xp-ZJx">
@@ -145,9 +165,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9ok-t0-3oX" kind="relationship" relationship="viewControllers" id="SrK-n5-0kN"/>
-                        <segue destination="0ba-wP-nDT" kind="relationship" relationship="viewControllers" id="OYo-bc-Zt4"/>
                         <segue destination="9O0-6D-sgr" kind="relationship" relationship="viewControllers" id="dA9-qt-IUu"/>
+                        <segue destination="0ba-wP-nDT" kind="relationship" relationship="viewControllers" id="OYo-bc-Zt4"/>
+                        <segue destination="9ok-t0-3oX" kind="relationship" relationship="viewControllers" id="SrK-n5-0kN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9L-O6-kA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -157,5 +177,8 @@
     </scenes>
     <resources>
         <image name="BackgroundImage" width="750" height="1334"/>
+        <image name="Feed" width="24" height="24"/>
+        <image name="LogOut" width="24" height="24"/>
+        <image name="Upload" width="24" height="24"/>
     </resources>
 </document>
