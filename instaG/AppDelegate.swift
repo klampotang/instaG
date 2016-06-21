@@ -30,8 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             //load the home page instead of login
             self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController");
-
-            
         }
         return true
     }

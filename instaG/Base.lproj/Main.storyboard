@@ -59,7 +59,7 @@
                                 <rect key="frame" x="20" y="511" width="221" height="95"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <color key="textColor" red="0.17592922120000001" green="0.2747717301" blue="0.5868389423" alpha="0.79256465519999997" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.17592922120000001" green="0.2747717301" blue="0.5868389423" alpha="0.43017241379310345" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -111,7 +111,7 @@
                     <view key="view" contentMode="scaleToFill" id="OvF-O1-ar0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.88976362180000002" green="0.76822406009999999" blue="0.79877185360000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="Feed" id="ynX-9w-brQ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -129,29 +129,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="bcV-ms-z29">
-                                <rect key="frame" x="0.0" y="0.0" width="307" height="226"/>
+                                <rect key="frame" x="28" y="81" width="307" height="292"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.88976362180000002" green="0.76822406009999999" blue="0.79877185360000003" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Qmb-UX-ZOh">
-                                <rect key="frame" x="67" y="98" width="240" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qmb-UX-ZOh">
+                                <rect key="frame" x="-12" y="110" width="388" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Tap to take a picture">
+                                <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                <state key="normal" title="click to upload" image="UploadPrompt">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="imageFieldTapped:" destination="0ba-wP-nDT" eventType="touchUpInside" id="d1h-9f-kkD"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="caption" textAlignment="natural" minimumFontSize="17" id="ZJh-ys-2B4">
+                                <rect key="frame" x="35" y="415" width="300" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="E2n-DH-Hg4">
+                                <rect key="frame" x="288" y="461" width="47" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.56141118205046658" blue="0.534698607584839" alpha="0.24477370689655173" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="upload">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadTapped:" destination="0ba-wP-nDT" eventType="touchUpInside" id="AA9-Fg-z1l"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.88976362180000002" green="0.76822406009999999" blue="0.79877185360000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="w1B-2w-9OF" appends="YES" id="fuL-6R-Vmu"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="Upload" id="jUs-4f-l6O"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="cameraImage" destination="bcV-ms-z29" id="vXs-sF-KNv"/>
+                        <outlet property="captionTextField" destination="ZJh-ys-2B4" id="vHM-eZ-EsO"/>
+                        <outlet property="promptButton" destination="Qmb-UX-ZOh" id="zzL-Lp-JPD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtI-g3-wkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="w1B-2w-9OF"/>
             </objects>
             <point key="canvasLocation" x="1074.5" y="970.5"/>
         </scene>
@@ -181,5 +207,6 @@
         <image name="Feed" width="24" height="24"/>
         <image name="LogOut" width="24" height="24"/>
         <image name="Upload" width="24" height="24"/>
+        <image name="UploadPrompt" width="240" height="240"/>
     </resources>
 </document>
