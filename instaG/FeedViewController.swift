@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import Parse
 
 class FeedViewController: UIViewController {
 
+    @IBAction func logOut(sender: AnyObject) {
+        
+        PFUser.logOutInBackgroundWithBlock { (error: NSError?) in
+            // PFUser.currentUser() will now be nil
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         print("loaded feed")
+
         // Do any additional setup after loading the view.
     }
 
