@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if(PFUser.currentUser() != nil)
         {
             //load the home page instead of login
-            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("FeedViewController");
+            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController");
 
             
         }
