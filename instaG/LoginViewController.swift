@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     @IBAction func onSignIn(sender: AnyObject) {
         PFUser.logInWithUsernameInBackground(usernameField.text!, password: passwordField.text!)
         { (user: PFUser?, error: NSError?) -> Void in
+            self.passwordField.resignFirstResponder()
             if let error = error {
                 print("User login failed.")
                 print(error.localizedDescription)
@@ -23,6 +24,7 @@ class LoginViewController: UIViewController {
                 print("User logged in successfully")
                 // display view controller that needs to shown after successful login
                 self.performSegueWithIdentifier("loginSegue", sender: nil)
+                
             }
         }
         
@@ -37,10 +39,14 @@ class LoginViewController: UIViewController {
         if success {
             print("Yay, created a new user")
             self.performSegueWithIdentifier("loginSegue", sender: nil)
+            self.passwordField.resignFirstResponder()
             
         } else {
             print(error?.localizedDescription)
-            
+            if(error!.code == 202)
+            {
+                
+            }
         }
             
       }
@@ -49,8 +55,15 @@ class LoginViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let tapGesture = UITapGestureRecognizer(target: self, action: "tap:")
+        view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
+    }
+    
+    func tap(gesture: UITapGestureRecognizer) {
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
     }
 
     override
