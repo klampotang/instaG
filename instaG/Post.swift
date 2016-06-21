@@ -19,8 +19,9 @@ class Post: NSObject {
      - parameter completion: Block to be executed after save operation is complete
      */
 
-    class func postUserImage(image: UIImage?, withCaption caption: String?) {
+    class func postUserImage(image: UIImage?, withCaption caption: String?) -> Bool {
         // Create Parse object PFObject
+        var successOverall = true
         let post = PFObject(className: "Post")
         
         // Add relevant fields to the object
@@ -36,13 +37,16 @@ class Post: NSObject {
             {
                 //Success
                 print("Success")
+                
             }
             else
             {
                 print("Error")
+                successOverall = false
             }
         }
         
+        return successOverall
     
     }
     
@@ -63,5 +67,6 @@ class Post: NSObject {
         }
         return nil
     }
+    
     
 }

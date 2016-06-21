@@ -111,6 +111,13 @@
                     <view key="view" contentMode="scaleToFill" id="OvF-O1-ar0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="o3E-F5-wSQ">
+                                <rect key="frame" x="0.0" y="46" width="375" height="576"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.88976362180000002" green="0.76822406009999999" blue="0.79877185360000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Feed" image="Feed" id="ynX-9w-brQ"/>
@@ -118,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kiA-EV-RxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547" y="957"/>
+            <point key="canvasLocation" x="546.5" y="956.5"/>
         </scene>
         <!--Upload-->
         <scene sceneID="SQa-As-57j">

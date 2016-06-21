@@ -45,8 +45,15 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         let captionText = captionTextField.text;
         print(captionText)
         //newimage = resize(newimage!, newSize: CGSize)
-        Post.postUserImage(newimage, withCaption: captionText!)
-        
+        let successValue = Post.postUserImage(newimage, withCaption: captionText!)
+        if(successValue)
+        {
+            self.alert("Success")
+        }
+        else
+        {
+            self.alert("Error")
+        }
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -73,21 +80,40 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         UIGraphicsEndImageContext()
         return newImage
     }
-    func alert (error: String) {
-        let alertController = UIAlertController(title: "Error", message: error, preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+    func alert (type: String) {
+        if(type == "Success")
+        {
+            let alertController = UIAlertController(title: "Success", message: "Posted to instaG", preferredStyle: .Alert)
             
-        }
-        alertController.addAction(cancelAction)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                
+            }
+            alertController.addAction(OKAction)
             
+            self.presentViewController(alertController, animated: true) {
+                
+            }
+
         }
-        alertController.addAction(OKAction)
-        
-        self.presentViewController(alertController, animated: true) {
+        else
+        {
+            let alertController = UIAlertController(title: "Error", message: "Try again later", preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                
+            }
+            alertController.addAction(cancelAction)
             
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                
+            }
+            alertController.addAction(OKAction)
+            
+            self.presentViewController(alertController, animated: true) {
+                
+            }
+
         }
+
     }
     
 }
