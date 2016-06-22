@@ -35,22 +35,16 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 4
+        //return instaposts.count //(why doesnt this work)
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! FeedCell
         let query = PFQuery(className: "Post")
-        cell.captionLabel.text = "hi"
         query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
-                
                 if let objects = objects {
-                    for object in objects{
-                        self.instaposts = objects
-                        let captionString = object.valueForKey("caption") as! String
-                        //cell.captionLabel.text = captionString
-                        //print(object.valueForKey("caption") as! String)
-                    }
+                    self.instaposts = objects
                 }
             } else {
                 print("not working")
