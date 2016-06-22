@@ -12,7 +12,8 @@ import ParseUI
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var instaposts:[PFObject] = []
-    
+    var imagePLS = UIImage()
+
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func logOut(sender: AnyObject) {
@@ -26,52 +27,76 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        // Do any additional setup after loading the view.
-        
+        getPosts()
+        // Initialize a UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlGetPosts(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
-        //return instaposts.count //(why doesnt this work)
+        //return 6
+        return instaposts.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! FeedCell
-        let query = PFQuery(className: "Post")
-        query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
-            if error == nil {
-                if let objects = objects {
-                    self.instaposts = objects
-                }
-            } else {
-                print("not working")
-            }
-            let textPfObject = self.instaposts[indexPath.row]
-            // get text string out of the pf object
-            if let stringText = textPfObject.valueForKey("caption") {
-                print(stringText as? String)
-                cell.captionLabel.text = stringText as? String
-                cell.instaPostPic.file = textPfObject["media"] as? PFFile
-                cell.instaPostPic.loadInBackground()
-            }
+        
+        let textPfObject = self.instaposts[indexPath.row]
+        // get text string out of the pf object
+        if let stringText = textPfObject.valueForKey("caption") {
+            cell.captionLabel.text = stringText as? String
+            cell.instaPostPic.file = textPfObject["media"] as? PFFile
+            cell.instaPostPic.loadInBackground()
+            
         }
         return cell
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        getPosts()
         let vc = segue.destinationViewController as! DetailViewController
         let indexPath1 = tableView.indexPathForCell(sender as! FeedCell)
-        let post = instaposts[indexPath1!.row]
+        let post = self.instaposts[indexPath1!.row]
         
-        let photoURL = post.valueForKeyPath("media") as? String
         
-        //vc.detailImageViaSegue = photoURL!
-        //vc.dateViaSegue = (post.valueForKey("date") as? String)!
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        let dateString = "\(dateFormatter.stringFromDate(post.createdAt!))"
+        vc.dateViaSegue = dateString
         vc.captionViaSegue = (post.valueForKey("caption") as? String)!
+        
+        let imagePostFile = post["media"] as? PFFile
+        vc.detailImage.file = imagePostFile
+        vc.detailImage.loadInBackground()
+        //vc.detailImage?.image = imagePLS
     }
-
-
+    func refreshControlGetPosts(refreshControl: UIRefreshControl)
+    {
+        getPosts()
+        // Reload the tableView now that there is new data
+        self.tableView.reloadData()
+        // Tell the refreshControl to stop spinning
+        refreshControl.endRefreshing()
+    }
+    func getPosts()
+    {
+        let query = PFQuery(className: "Post")
+        query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objects = objects {
+                    self.instaposts = objects
+                    self.tableView.reloadData()
+                    
+                }
+            } else {
+                print("not working")
+            }
+        }
+    }
+    
+    
 }

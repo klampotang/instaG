@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import ParseUI
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var detailImage: PFImageView!
     @IBOutlet weak var detailDate: UILabel!
     @IBOutlet weak var detailCaption: UILabel!
     
@@ -19,8 +21,6 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let imageUrl = NSURL(string: detailImageViaSegue)
-        //detailImage.setImageWithURL(imageUrl!)
         detailDate.text = dateViaSegue
         detailCaption.text = captionViaSegue
         
