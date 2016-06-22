@@ -60,5 +60,18 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         return cell
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! DetailViewController
+        let indexPath1 = tableView.indexPathForCell(sender as! FeedCell)
+        let post = instaposts[indexPath1!.row]
+        
+        let photoURL = post.valueForKeyPath("media") as? String
+        
+        //vc.detailImageViaSegue = photoURL!
+        //vc.dateViaSegue = (post.valueForKey("date") as? String)!
+        vc.captionViaSegue = (post.valueForKey("caption") as? String)!
+    }
+
 
 }

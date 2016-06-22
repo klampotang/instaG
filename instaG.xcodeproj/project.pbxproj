@@ -10,6 +10,7 @@
 		18ABBAFAFC8079FB2361EB46 /* Pods_instaG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2578CD71E952491E2794B3F1 /* Pods_instaG.framework */; };
 		882689311D19E6EE00E55CD2 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882689301D19E6EE00E55CD2 /* Post.swift */; };
 		882689331D1A0FB100E55CD2 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882689321D1A0FB100E55CD2 /* FeedCell.swift */; };
+		882689351D1A5F7D00E55CD2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882689341D1A5F7D00E55CD2 /* DetailViewController.swift */; };
 		8886A9F81D1890F4008985E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886A9F71D1890F4008985E9 /* AppDelegate.swift */; };
 		8886A9FA1D1890F4008985E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886A9F91D1890F4008985E9 /* ViewController.swift */; };
 		8886A9FD1D1890F4008985E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8886A9FB1D1890F4008985E9 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 		2578CD71E952491E2794B3F1 /* Pods_instaG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instaG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		882689301D19E6EE00E55CD2 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		882689321D1A0FB100E55CD2 /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		882689341D1A5F7D00E55CD2 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8886A9F41D1890F4008985E9 /* instaG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instaG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8886A9F71D1890F4008985E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8886A9F91D1890F4008985E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				8886AA0B1D18AE3E008985E9 /* FeedViewController.swift */,
 				882689301D19E6EE00E55CD2 /* Post.swift */,
 				882689321D1A0FB100E55CD2 /* FeedCell.swift */,
+				882689341D1A5F7D00E55CD2 /* DetailViewController.swift */,
 			);
 			path = instaG;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				882689311D19E6EE00E55CD2 /* Post.swift in Sources */,
 				8886AA0C1D18AE3E008985E9 /* FeedViewController.swift in Sources */,
 				8886A9F81D1890F4008985E9 /* AppDelegate.swift in Sources */,
+				882689351D1A5F7D00E55CD2 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
