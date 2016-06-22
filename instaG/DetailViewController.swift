@@ -18,13 +18,14 @@ class DetailViewController: UIViewController {
     var dateViaSegue = ""
     var captionViaSegue = ""
     var detailImageViaSegue = ""
+    internal var file:PFFile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         detailDate.text = dateViaSegue
         detailCaption.text = captionViaSegue
-        
-        // Do any additional setup after loading the view.
+        detailImage.file = file
+        detailImage.loadInBackground()
     }
 
     override func didReceiveMemoryWarning() {

@@ -81,7 +81,7 @@
         <!--Log Out-->
         <scene sceneID="lTN-Gb-Nm9">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="9ok-t0-3oX" customClass="FeedViewController" customModule="instaG" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="9ok-t0-3oX" customClass="ProfileViewController" customModule="instaG" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZUH-lD-gCY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,16 +91,48 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log out"/>
                                 <connections>
-                                    <action selector="logOut:" destination="9ok-t0-3oX" eventType="touchUpInside" id="CNG-QI-Ho0"/>
                                     <segue destination="BYZ-38-t0r" kind="modal" id="F7D-Pr-Jcc"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="XlL-9C-mss">
+                                <rect key="frame" x="0.0" y="127" width="375" height="478"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2kH-0a-kaA">
+                                    <size key="itemSize" width="167" height="132"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="KMc-yT-z6i" customClass="ProfileCollectionCell" customModule="instaG" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="167" height="132"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="167" height="132"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4pq-YG-Rlb" customClass="PFImageView">
+                                                    <rect key="frame" x="0.0" y="2" width="167" height="130"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="profileCollImage1" destination="4pq-YG-Rlb" id="3bV-xV-GyF"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.88976362180000002" green="0.76822406009999999" blue="0.79877185360000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Log Out" image="LogOut" id="KOB-QJ-mSz"/>
                     <navigationItem key="navigationItem" id="6pS-yI-Wbn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionView" destination="XlL-9C-mss" id="73g-3W-vuq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rn-xu-anA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

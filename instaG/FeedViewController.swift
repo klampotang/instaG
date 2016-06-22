@@ -84,9 +84,11 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         vc.captionViaSegue = (post.valueForKey("caption") as? String)!
         
         let imagePostFile = post["media"] as? PFFile
-        vc.detailImage.file = imagePostFile
-        vc.detailImage.loadInBackground()
-        //vc.detailImage?.image = imagePLS
+        //let newImage = PFImageView();
+        //newImage.file = imagePostFile
+        //vc.detailImage = newImage;
+        vc.file = imagePostFile
+        
     }
     func refreshControlGetPosts(refreshControl: UIRefreshControl)
     {
