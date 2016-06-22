@@ -8,9 +8,13 @@
 
 import UIKit
 import Parse
+import ParseUI
 
-class FeedViewController: UIViewController {
-
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var instaposts:[PFObject] = []
+    
+    
+    @IBOutlet weak var tableView: UITableView!
     @IBAction func logOut(sender: AnyObject) {
         
         PFUser.logOutInBackgroundWithBlock { (error: NSError?) in
@@ -18,26 +22,50 @@ class FeedViewController: UIViewController {
         }
     }
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        print("loaded feed")
-
+        tableView.dataSource = self
+        tableView.delegate = self
         // Do any additional setup after loading the view.
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
-    */
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! FeedCell
+        let query = PFQuery(className: "Post")
+        cell.captionLabel.text = "hi"
+        query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                
+                if let objects = objects {
+                    for object in objects{
+                        self.instaposts = objects
+                        let captionString = object.valueForKey("caption") as! String
+                        //cell.captionLabel.text = captionString
+                        //print(object.valueForKey("caption") as! String)
+                    }
+                }
+            } else {
+                print("not working")
+            }
+            let textPfObject = self.instaposts[indexPath.row]
+            // get text string out of the pf object
+            if let stringText = textPfObject.valueForKey("caption") {
+                print(stringText as? String)
+                cell.captionLabel.text = stringText as? String
+            }
+
+            
+        }
+        //self.tableView.reloadData()
+        return cell
+    }
 
 }

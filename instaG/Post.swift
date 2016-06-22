@@ -18,7 +18,6 @@ class Post: NSObject {
      - parameter caption: Caption text input by the user
      - parameter completion: Block to be executed after save operation is complete
      */
-
     class func postUserImage(image: UIImage?, withCaption caption: String?) -> Bool {
         // Create Parse object PFObject
         var successOverall = true

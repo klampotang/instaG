@@ -7,5 +7,6 @@ target 'instaG' do
 
   # Pods for instaG
     pod 'Parse'
+    pod 'ParseUI'
 
 end
