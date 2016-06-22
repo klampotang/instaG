@@ -48,7 +48,7 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, UICol
     func getUserPosts()
     {
         let query = PFQuery(className: "Post")
-        query.whereKey("user", equalTo: (PFUser.currentUser()?.username)!)
+        query.whereKey("author", equalTo: PFUser.currentUser()!)
         query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objects = objects {
