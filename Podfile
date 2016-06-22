@@ -8,5 +8,7 @@ target 'instaG' do
   # Pods for instaG
     pod 'Parse'
     pod 'ParseUI'
+    pod 'MBProgressHUD'
+
 
 end

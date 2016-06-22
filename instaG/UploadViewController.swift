@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import MBProgressHUD
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -42,12 +43,16 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.presentViewController(vc, animated: true, completion: nil)
     }
     @IBAction func uploadTapped(sender: AnyObject) {
+        // Display HUD right before the request is made
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         let captionText = captionTextField.text;
         print(captionText)
         //newimage = resize(newimage!, newSize: CGSize)
         let successValue = Post.postUserImage(newimage, withCaption: captionText!)
         if(successValue)
         {
+            // Hide HUD once the network request comes back (must be done on main UI thread)
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
             self.alert("Success")
         }
         else
