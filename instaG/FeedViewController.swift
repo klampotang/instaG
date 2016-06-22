@@ -10,10 +10,24 @@ import UIKit
 import Parse
 import ParseUI
 
-class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     var instaposts:[PFObject] = []
     var imagePLS = UIImage()
-
+    var isMoreDataLoading = false
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        // Calculate the position of one screen length before the bottom of the results
+        let scrollViewContentHeight = tableView.contentSize.height
+        let scrollOffsetThreshold = scrollViewContentHeight - tableView.bounds.size.height
+        
+        // When the user has scrolled past the threshold, start requesting
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && tableView.dragging) {
+            isMoreDataLoading = true
+            
+            // ... Code to load more results ...
+            getPosts()
+        }
+    }
     
     @IBOutlet weak var tableView: UITableView!
     @IBAction func logOut(sender: AnyObject) {
