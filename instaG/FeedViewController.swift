@@ -35,7 +35,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Dispose of any resources that can be recreated.
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 6
         //return instaposts.count //(why doesnt this work)
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -57,10 +57,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.instaPostPic.file = textPfObject["media"] as? PFFile
                 cell.instaPostPic.loadInBackground()
             }
-
-            
         }
-        //self.tableView.reloadData()
         return cell
     }
 
