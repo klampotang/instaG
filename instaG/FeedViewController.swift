@@ -54,6 +54,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let stringText = textPfObject.valueForKey("caption") {
                 print(stringText as? String)
                 cell.captionLabel.text = stringText as? String
+                cell.instaPostPic.file = textPfObject["media"] as? PFFile
+                cell.instaPostPic.loadInBackground()
             }
 
             
