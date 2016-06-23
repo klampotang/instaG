@@ -12,9 +12,11 @@ import MBProgressHUD
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var uploadRollButton: UIButton!
     @IBOutlet weak var captionTextField: UITextField!
     @IBOutlet weak var promptButton: UIButton!
     @IBOutlet weak var cameraImage: UIImageView!
+    
     var newpost: Post?
     
     var newimage:UIImage?
@@ -42,6 +44,14 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         self.presentViewController(vc, animated: true, completion: nil)
     }
+    @IBAction func uploadFromRollTapped(sender: AnyObject) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
     @IBAction func uploadTapped(sender: AnyObject) {
         // Display HUD right before the request is made
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
@@ -54,6 +64,10 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             // Hide HUD once the network request comes back (must be done on main UI thread)
             MBProgressHUD.hideHUDForView(self.view, animated: true)
             self.alert("Success")
+            cameraImage.hidden = true
+            promptButton.hidden = false
+            uploadRollButton.hidden = false
+            captionTextField.text = ""
         }
         else
         {
@@ -68,9 +82,12 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Do something with the images (based on your use case)
         cameraImage.image = editedImage
+        cameraImage.hidden = false
         newimage = editedImage
         //Hide the button
         promptButton.hidden = true
+        uploadRollButton.hidden = true
+        
         // Dismiss UIImagePickerController to go back to your original view controller
         dismissViewControllerAnimated(true, completion: nil)
     }

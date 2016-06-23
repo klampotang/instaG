@@ -13,7 +13,6 @@ class FeedCell: UITableViewCell {
 
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var instaPostPic: PFImageView!
-    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {

@@ -78,7 +78,7 @@
             </objects>
             <point key="canvasLocation" x="130.5" y="288.5"/>
         </scene>
-        <!--Log Out-->
+        <!--Profile-->
         <scene sceneID="lTN-Gb-Nm9">
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="9ok-t0-3oX" customClass="ProfileViewController" customModule="instaG" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,33 +87,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="eQB-BF-wkT">
-                                <rect key="frame" x="235" y="28" width="174" height="30"/>
+                                <rect key="frame" x="299" y="29" width="65" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log out"/>
+                                <state key="normal" title="Log out">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="0.37747844827586208" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="modal" id="F7D-Pr-Jcc"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="XlL-9C-mss">
-                                <rect key="frame" x="0.0" y="127" width="375" height="478"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="543"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2kH-0a-kaA">
-                                    <size key="itemSize" width="167" height="132"/>
+                                    <size key="itemSize" width="110" height="118"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="15" maxX="10" maxY="15"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="KMc-yT-z6i" customClass="ProfileCollectionCell" customModule="instaG" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="167" height="132"/>
+                                        <rect key="frame" x="10" y="15" width="110" height="118"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="167" height="132"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4pq-YG-Rlb" customClass="PFImageView">
-                                                    <rect key="frame" x="0.0" y="2" width="167" height="130"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="110" height="118"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -125,14 +127,41 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <view contentMode="scaleToFill" id="3np-EZ-nAw">
+                                <rect key="frame" x="0.0" y="62" width="381" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="j1i-nT-GVg" customClass="PFImageView">
+                                <rect key="frame" x="10" y="29" width="47" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fWA-o6-6Kz">
+                                <rect key="frame" x="10" y="29" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonSetProfPic:" destination="9ok-t0-3oX" eventType="touchUpInside" id="qci-9Y-snL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ah6-tz-yHo">
+                                <rect key="frame" x="65" y="33" width="109" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Log Out" image="LogOut" id="KOB-QJ-mSz"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="LogOut" id="KOB-QJ-mSz"/>
                     <navigationItem key="navigationItem" id="6pS-yI-Wbn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="buttonSet" destination="fWA-o6-6Kz" id="GzP-vd-nXQ"/>
                         <outlet property="collectionView" destination="XlL-9C-mss" id="73g-3W-vuq"/>
+                        <outlet property="profilePic" destination="j1i-nT-GVg" id="UPF-2S-HFU"/>
+                        <outlet property="usernameLabel" destination="ah6-tz-yHo" id="Epb-5l-yNj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4rn-xu-anA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -148,7 +177,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="443" sectionHeaderHeight="28" sectionFooterHeight="28" id="o3E-F5-wSQ">
-                                <rect key="frame" x="0.0" y="46" width="375" height="576"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="622"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -159,28 +188,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="442.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VVE-UB-xMf">
-                                                    <rect key="frame" x="8" y="364" width="336" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="h7J-1p-2Dj" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="8" width="375" height="343.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ygY-EL-aI7">
-                                                    <rect key="frame" x="8" y="387" width="152" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N8s-fr-u8r">
+                                                    <rect key="frame" x="8" y="418.5" width="108" height="15.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N8s-fr-u8r">
-                                                    <rect key="frame" x="8" y="413" width="108" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VVE-UB-xMf">
+                                                    <rect key="frame" x="8" y="348" width="336" height="62.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -191,7 +213,6 @@
                                             <outlet property="captionLabel" destination="VVE-UB-xMf" id="DQk-0m-iET"/>
                                             <outlet property="dateLabel" destination="N8s-fr-u8r" id="2ga-LU-y4o"/>
                                             <outlet property="instaPostPic" destination="h7J-1p-2Dj" id="04N-s9-HTl"/>
-                                            <outlet property="usernameLabel" destination="ygY-EL-aI7" id="ucq-xt-nG1"/>
                                             <segue destination="kG9-90-3i8" kind="push" id="fL7-3W-EM4"/>
                                         </connections>
                                     </tableViewCell>
@@ -261,13 +282,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="bcV-ms-z29">
                                 <rect key="frame" x="28" y="81" width="307" height="292"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.73624712969999995" green="0.7472783315" blue="0.8037467277" alpha="0.37747844827586208" colorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qmb-UX-ZOh">
-                                <rect key="frame" x="-12" y="110" width="388" height="240"/>
+                                <rect key="frame" x="0.0" y="81" width="375" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="7"/>
-                                <state key="normal" title="click to upload" image="UploadPrompt">
+                                <color key="backgroundColor" red="0.54617387820512819" green="0.54617387820512819" blue="0.54617387820512819" alpha="0.067753232758620691" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="take a picture">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -275,15 +296,16 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="caption" textAlignment="natural" minimumFontSize="17" id="ZJh-ys-2B4">
-                                <rect key="frame" x="35" y="415" width="300" height="30"/>
+                                <rect key="frame" x="35" y="401" width="300" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="E2n-DH-Hg4">
-                                <rect key="frame" x="0.0" y="461" width="375" height="30"/>
+                                <rect key="frame" x="0.0" y="488" width="375" height="106"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.73624712969999995" green="0.7472783315" blue="0.8037467277" alpha="0.34886853448275862" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="upload">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -291,6 +313,23 @@
                                     <action selector="uploadTapped:" destination="0ba-wP-nDT" eventType="touchUpInside" id="AA9-Fg-z1l"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qz3-c1-up6">
+                                <rect key="frame" x="0.0" y="228" width="375" height="145"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.75556891025641026" green="0.75556891025641026" blue="0.75556891025641026" alpha="0.067753232758620691" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="upload from roll">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="uploadFromRollTapped:" destination="0ba-wP-nDT" eventType="touchUpInside" id="U5c-uq-Vi8"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="3IX-bm-rcI">
+                                <rect key="frame" x="0.0" y="61" width="375" height="6"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -305,6 +344,7 @@
                         <outlet property="cameraImage" destination="bcV-ms-z29" id="vXs-sF-KNv"/>
                         <outlet property="captionTextField" destination="ZJh-ys-2B4" id="vHM-eZ-EsO"/>
                         <outlet property="promptButton" destination="Qmb-UX-ZOh" id="zzL-Lp-JPD"/>
+                        <outlet property="uploadRollButton" destination="qz3-c1-up6" id="qIt-4Z-HaE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtI-g3-wkO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -320,7 +360,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="gvI-jc-oRY">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.62760416666666674" green="0.62760416666666674" blue="0.62760416666666674" alpha="0.067753232758620691" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ERy-Dz-oko" kind="relationship" relationship="viewControllers" id="dA9-qt-IUu"/>
@@ -357,6 +397,5 @@
         <image name="Feed" width="24" height="24"/>
         <image name="LogOut" width="24" height="24"/>
         <image name="Upload" width="24" height="24"/>
-        <image name="UploadPrompt" width="240" height="240"/>
     </resources>
 </document>

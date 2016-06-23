@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import ParseUI
+import MBProgressHUD
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     var instaposts:[PFObject] = []
@@ -41,6 +42,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        // Display HUD right before the request is made
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         getPosts()
         // Initialize a UIRefreshControl
         let refreshControl = UIRefreshControl()
@@ -72,9 +75,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             let dateString = "\(dateFormatter.stringFromDate(dateNS!))"
             
             cell.captionLabel.text = stringText as? String
-            cell.dateLabel.text = dateString
-            cell.usernameLabel.text = (textPfObject["author"]).username
-            
+            cell.dateLabel.text = dateString            
             cell.instaPostPic.file = textPfObject["media"] as? PFFile
             cell.instaPostPic.loadInBackground()
             
@@ -90,11 +91,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy"
-        let dateString = "\(dateFormatter.stringFromDate(post.createdAt!))"
+        let dateString = "\(dateFormatter.stringFromDate(post.createdAt!))"        
         vc.dateViaSegue = dateString
-        vc.captionViaSegue = (post.valueForKey("caption") as? String)!
-        
+        let caption = (post.valueForKey("caption") as? String)!
+        vc.captionViaSegue = caption
         let imagePostFile = post["media"] as? PFFile
         vc.file = imagePostFile
         
@@ -116,6 +116,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 if let objects = objects {
                     self.instaposts = objects
                     self.tableView.reloadData()
+                    // Hide HUD once the network request comes back (must be done on main UI thread)
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
                     
                 }
             } else {
@@ -134,7 +136,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 50
     }
     
     
