@@ -13,6 +13,7 @@ import ParseUI
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     var instaposts:[PFObject] = []
     var isMoreDataLoading = false
+    let HeaderViewIdentifier = "TableViewHeaderView"
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         // Calculate the position of one screen length before the bottom of the results
@@ -45,6 +46,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlGetPosts(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
+        tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
+
 
     }
     
@@ -117,6 +120,16 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("not working")
             }
         }
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderViewIdentifier)! as UITableViewHeaderFooterView
+        header.textLabel!.text = "hi"
+        return header
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
     
     
