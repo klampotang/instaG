@@ -89,6 +89,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             profilePic.file = profilePicFile
             profilePic.loadInBackground()
             
+            profilePic.layer.borderWidth = 1
+            profilePic.layer.masksToBounds = false
+            profilePic.layer.borderColor = UIColor.whiteColor().CGColor
+            profilePic.layer.cornerRadius = profilePic.frame.height/2
+            profilePic.clipsToBounds = true
+            
             
             
         }

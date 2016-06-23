@@ -133,11 +133,11 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="j1i-nT-GVg" customClass="PFImageView">
-                                <rect key="frame" x="10" y="29" width="47" height="30"/>
+                                <rect key="frame" x="10" y="29" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fWA-o6-6Kz">
-                                <rect key="frame" x="10" y="29" width="46" height="30"/>
+                                <rect key="frame" x="10" y="29" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -145,7 +145,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ah6-tz-yHo">
-                                <rect key="frame" x="65" y="33" width="109" height="21"/>
+                                <rect key="frame" x="48" y="33" width="109" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -378,9 +378,11 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ERy-Dz-oko" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="Feed" id="ynX-9w-brQ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y2U-tL-uFa">
+                    <navigationBar key="navigationBar" alpha="0.10000000000000001" contentMode="scaleToFill" id="Y2U-tL-uFa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.11780135375102155" green="0.11986964120897443" blue="0.12950721153846156" alpha="0.074137931034482754" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.11780135375102155" green="0.11986964120897443" blue="0.12950721153846156" alpha="0.37747844827586208" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
