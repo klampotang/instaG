@@ -146,16 +146,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="408" sectionHeaderHeight="28" sectionFooterHeight="28" id="o3E-F5-wSQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="443" sectionHeaderHeight="28" sectionFooterHeight="28" id="o3E-F5-wSQ">
                                 <rect key="frame" x="0.0" y="46" width="375" height="576"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="408" id="aXu-yA-GV2" customClass="FeedCell" customModule="instaG" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="408"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="443" id="aXu-yA-GV2" customClass="FeedCell" customModule="instaG" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="443"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aXu-yA-GV2" id="s3x-ea-TVi">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="407.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="442.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VVE-UB-xMf">
@@ -169,12 +169,28 @@
                                                     <rect key="frame" x="0.0" y="8" width="375" height="343.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ygY-EL-aI7">
+                                                    <rect key="frame" x="8" y="387" width="152" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N8s-fr-u8r">
+                                                    <rect key="frame" x="8" y="413" width="108" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.57507385703289271" green="0.5868389423" blue="0.48180791505290016" alpha="0.43017241379310345" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="captionLabel" destination="VVE-UB-xMf" id="DQk-0m-iET"/>
+                                            <outlet property="dateLabel" destination="N8s-fr-u8r" id="2ga-LU-y4o"/>
                                             <outlet property="instaPostPic" destination="h7J-1p-2Dj" id="04N-s9-HTl"/>
+                                            <outlet property="usernameLabel" destination="ygY-EL-aI7" id="ucq-xt-nG1"/>
                                             <segue destination="kG9-90-3i8" kind="push" id="fL7-3W-EM4"/>
                                         </connections>
                                     </tableViewCell>

@@ -12,7 +12,6 @@ import ParseUI
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate {
     var instaposts:[PFObject] = []
-    var imagePLS = UIImage()
     var isMoreDataLoading = false
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -62,7 +61,15 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let textPfObject = self.instaposts[indexPath.row]
         // get text string out of the pf object
         if let stringText = textPfObject.valueForKey("caption") {
+            let dateNS = textPfObject.createdAt
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MM-dd-yyyy"
+            let dateString = "\(dateFormatter.stringFromDate(dateNS!))"
+            
             cell.captionLabel.text = stringText as? String
+            cell.dateLabel.text = dateString
+            cell.usernameLabel.text = (textPfObject["author"]).username
+            
             cell.instaPostPic.file = textPfObject["media"] as? PFFile
             cell.instaPostPic.loadInBackground()
             
@@ -84,9 +91,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         vc.captionViaSegue = (post.valueForKey("caption") as? String)!
         
         let imagePostFile = post["media"] as? PFFile
-        //let newImage = PFImageView();
-        //newImage.file = imagePostFile
-        //vc.detailImage = newImage;
         vc.file = imagePostFile
         
     }
@@ -101,6 +105,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func getPosts()
     {
         let query = PFQuery(className: "Post")
+        query.includeKey("author")
         query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objects = objects {
