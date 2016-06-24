@@ -24,8 +24,14 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
        
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.tap(_:)))
+        view.addGestureRecognizer(tapGesture)
 
         // Do any additional setup after loading the view.
+    }
+    func tap(gesture: UITapGestureRecognizer) {
+        captionTextField.resignFirstResponder()
+        
     }
 
     @IBAction func TwirlPressed(sender: AnyObject) {

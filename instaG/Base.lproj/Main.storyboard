@@ -140,7 +140,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fWA-o6-6Kz">
                                 <rect key="frame" x="10" y="29" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="buttonSetProfPic:" destination="9ok-t0-3oX" eventType="touchUpInside" id="qci-9Y-snL"/>
                                 </connections>
@@ -634,6 +633,10 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="AH5-wD-TgQ" appends="YES" id="fJ5-H2-EWX"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="uMA-MH-LwZ"/>
                     <connections>
@@ -642,6 +645,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Rv-Pe-y5F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="AH5-wD-TgQ"/>
             </objects>
             <point key="canvasLocation" x="2715.5" y="981.5"/>
         </scene>
