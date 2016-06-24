@@ -11,6 +11,7 @@ import ParseUI
 
 class FeedCell: UITableViewCell {
 
+    @IBOutlet weak var countsLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
     @IBOutlet weak var instaPostPic: PFImageView!
     @IBOutlet weak var dateLabel: UILabel!

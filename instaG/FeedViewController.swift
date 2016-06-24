@@ -50,8 +50,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl.addTarget(self, action: #selector(refreshControlGetPosts(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
         tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
-
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,6 +77,14 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.dateLabel.text = dateString            
             cell.instaPostPic.file = textPfObject["media"] as? PFFile
             cell.instaPostPic.loadInBackground()
+            if(textPfObject.valueForKey("likesCount") != nil)
+            {
+                cell.countsLabel.text = "\(textPfObject.valueForKey("likesCount")!)"
+            }
+            else
+            {
+                cell.countsLabel.text = "0"
+            }
             
         }
         return cell
@@ -112,15 +118,50 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl.endRefreshing()
     }
     @IBAction func likeTapped(sender: AnyObject) {
-        let hitPoint = sender.convertPoint(CGPointZero, toView: self.feedView)
-        let indexPath = self.feedView.indexPathForRowAtPoint(hitPoint)
-        let specificPFObject = instaposts[section]
-        specificPFObject["likesCount"] = specificPFObject["likesCount"]+1
+        print("Hi")
+        var indexPath: NSIndexPath!
+        
+        if let button = sender as? UIButton {
+            if let superview = button.superview {
+                if let cell = superview.superview as? FeedCell {
+                    indexPath = (tableView.indexPathForCell(cell))
+                }
+            }
+        }
+        let cell1 = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! FeedCell
+        
+        let textPfObject = self.instaposts[indexPath.section]
+        var currCount = 0
+        if(textPfObject.valueForKey("likesCount") == nil)
+        {
+            currCount = 0
+        }
+        else
+        {
+            currCount = textPfObject.valueForKey("likesCount") as! Int
+        }
+        textPfObject["likesCount"] = currCount + 1
+        textPfObject.saveInBackgroundWithBlock {
+            (succeeded: Bool, error: NSError?) -> Void in
+            if error != nil {
+                print("failed")
+            } else {
+                print("YAY")
+            }
+        }
+
+        
+        let likesCountNum = textPfObject.valueForKey("likesCount")
+        cell1.countsLabel.text = "\(likesCountNum!)"
+        tableView.reloadData()
+        
+        
     }
     func getPosts()
     {
         let query = PFQuery(className: "Post")
         query.includeKey("author")
+        //query.includeKey("likesCount")
         query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objects = objects {
