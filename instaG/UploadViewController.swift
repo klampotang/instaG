@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import MBProgressHUD
+import ParseUI
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 

@@ -181,25 +181,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="443" id="aXu-yA-GV2" customClass="FeedCell" customModule="instaG" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="443" id="bqV-Ry-5VP" customClass="FeedCell" customModule="instaG" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="375" height="443"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aXu-yA-GV2" id="s3x-ea-TVi">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bqV-Ry-5VP" id="pAx-lG-3tZ">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="442.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="h7J-1p-2Dj" customClass="PFImageView">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="WZh-ms-7Xn" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="8" width="375" height="343.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N8s-fr-u8r">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VeL-yS-Lv6">
                                                     <rect key="frame" x="8" y="418.5" width="108" height="15.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VVE-UB-xMf">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caption" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TnZ-id-6Tk">
                                                     <rect key="frame" x="8" y="348" width="336" height="62.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -210,10 +210,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <outlet property="captionLabel" destination="VVE-UB-xMf" id="DQk-0m-iET"/>
-                                            <outlet property="dateLabel" destination="N8s-fr-u8r" id="2ga-LU-y4o"/>
-                                            <outlet property="instaPostPic" destination="h7J-1p-2Dj" id="04N-s9-HTl"/>
-                                            <segue destination="kG9-90-3i8" kind="push" id="fL7-3W-EM4"/>
+                                            <outlet property="captionLabel" destination="TnZ-id-6Tk" id="pfu-iJ-8RV"/>
+                                            <outlet property="dateLabel" destination="VeL-yS-Lv6" id="flK-8y-gWT"/>
+                                            <outlet property="instaPostPic" destination="WZh-ms-7Xn" id="id7-zu-cqc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

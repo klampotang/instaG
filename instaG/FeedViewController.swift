@@ -129,9 +129,31 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderViewIdentifier)! as UITableViewHeaderFooterView
         let lilPFObject = instaposts[section]
-        let PFUser = lilPFObject.valueForKey("author")
-        let stringUser = PFUser?.username
+        let PFUserPLS = lilPFObject.valueForKey("author") as! PFUser
+        let stringUser = PFUserPLS.username
+        let view1 = PFImageView()
+
+        if (PFUserPLS["ProfilePic"] != nil)
+        {
+            let PFFilePic = PFUserPLS["ProfilePic"] as! PFFile
+            view1.file = PFFilePic
+            view1.loadInBackground()
+        }
+        else
+        {
+            view1.image = UIImage(named: "PhotoLogo")
+        }
+        
         header.textLabel!.text = stringUser!
+        view1.frame = CGRect(x:325, y:10, width: 35, height: 35)
+        view1.layer.borderWidth = 1
+        view1.layer.masksToBounds = false
+        view1.layer.borderColor = UIColor.whiteColor().CGColor
+        view1.layer.cornerRadius = view1.frame.height/2
+        view1.clipsToBounds = true
+
+        header.contentView.addSubview(view1)
+        
         return header
     }
     
