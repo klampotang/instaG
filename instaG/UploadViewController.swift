@@ -103,6 +103,14 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         UIGraphicsEndImageContext()
         return newImage
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! EditViewController
+        vc.imageSent = newimage!
+        cameraImage.hidden = true
+        captionTextField.text = ""
+        promptButton.hidden = false
+        uploadRollButton.hidden = false
+    }
     func alert (type: String) {
         if(type == "Success")
         {
