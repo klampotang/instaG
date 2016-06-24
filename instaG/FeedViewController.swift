@@ -71,7 +71,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let stringText = textPfObject.valueForKey("caption") {
             let dateNS = textPfObject.createdAt
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "MM-dd-yyyy"
+            dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+            dateFormatter.timeStyle = .MediumStyle
             let dateString = "\(dateFormatter.stringFromDate(dateNS!))"
             
             cell.captionLabel.text = stringText as? String
@@ -91,7 +92,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         let dateFormatter = NSDateFormatter()
-        let dateString = "\(dateFormatter.stringFromDate(post.createdAt!))"        
+        dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+        dateFormatter.timeStyle = .MediumStyle
+
+        let dateString = "\(dateFormatter.stringFromDate(post.createdAt!))"
         vc.dateViaSegue = dateString
         let caption = (post.valueForKey("caption") as? String)!
         vc.captionViaSegue = caption
@@ -106,6 +110,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.reloadData()
         // Tell the refreshControl to stop spinning
         refreshControl.endRefreshing()
+    }
+    @IBAction func likeTapped(sender: AnyObject) {
+        let hitPoint = sender.convertPoint(CGPointZero, toView: self.feedView)
+        let indexPath = self.feedView.indexPathForRowAtPoint(hitPoint)
+        let specificPFObject = instaposts[section]
+        specificPFObject["likesCount"] = specificPFObject["likesCount"]+1
     }
     func getPosts()
     {
