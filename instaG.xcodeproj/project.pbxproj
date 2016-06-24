@@ -21,6 +21,8 @@
 		8886AA0A1D1894D9008985E9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886AA091D1894D9008985E9 /* LoginViewController.swift */; };
 		8886AA0C1D18AE3E008985E9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886AA0B1D18AE3E008985E9 /* FeedViewController.swift */; };
 		8886AA0E1D191468008985E9 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8886AA0D1D191468008985E9 /* UploadViewController.swift */; };
+		88EE55D21D1D0BCE00E1BC51 /* GenProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE55D11D1D0BCE00E1BC51 /* GenProfileViewController.swift */; };
+		88EE55D41D1D0CD700E1BC51 /* GenProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EE55D31D1D0CD700E1BC51 /* GenProfileCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		8886AA091D1894D9008985E9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8886AA0B1D18AE3E008985E9 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		8886AA0D1D191468008985E9 /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		88EE55D11D1D0BCE00E1BC51 /* GenProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenProfileViewController.swift; sourceTree = "<group>"; };
+		88EE55D31D1D0CD700E1BC51 /* GenProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenProfileCell.swift; sourceTree = "<group>"; };
 		9984DBC2CC0DA5CF16B8B65C /* Pods-instaG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instaG.release.xcconfig"; path = "Pods/Target Support Files/Pods-instaG/Pods-instaG.release.xcconfig"; sourceTree = "<group>"; };
 		E67F162DABE208159D82835D /* Pods-instaG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instaG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instaG/Pods-instaG.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +104,8 @@
 				882689341D1A5F7D00E55CD2 /* DetailViewController.swift */,
 				882689361D1B49A600E55CD2 /* ProfileViewController.swift */,
 				882689381D1B4A3A00E55CD2 /* ProfileCollectionCell.swift */,
+				88EE55D11D1D0BCE00E1BC51 /* GenProfileViewController.swift */,
+				88EE55D31D1D0CD700E1BC51 /* GenProfileCell.swift */,
 			);
 			path = instaG;
 			sourceTree = "<group>";
@@ -238,8 +244,10 @@
 				882689331D1A0FB100E55CD2 /* FeedCell.swift in Sources */,
 				882689391D1B4A3A00E55CD2 /* ProfileCollectionCell.swift in Sources */,
 				8886AA0A1D1894D9008985E9 /* LoginViewController.swift in Sources */,
+				88EE55D21D1D0BCE00E1BC51 /* GenProfileViewController.swift in Sources */,
 				8886AA0E1D191468008985E9 /* UploadViewController.swift in Sources */,
 				8886A9FA1D1890F4008985E9 /* ViewController.swift in Sources */,
+				88EE55D41D1D0CD700E1BC51 /* GenProfileCell.swift in Sources */,
 				882689311D19E6EE00E55CD2 /* Post.swift in Sources */,
 				8886AA0C1D18AE3E008985E9 /* FeedViewController.swift in Sources */,
 				882689371D1B49A600E55CD2 /* ProfileViewController.swift in Sources */,

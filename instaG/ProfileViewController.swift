@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let vc = UIImagePickerController()
         vc.delegate = self
         vc.allowsEditing = true
-        vc.sourceType = UIImagePickerControllerSourceType.Camera
+        vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
         self.presentViewController(vc, animated: true, completion: nil)
         

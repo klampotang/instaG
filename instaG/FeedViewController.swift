@@ -79,7 +79,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             cell.instaPostPic.loadInBackground()
             if(textPfObject.valueForKey("likesCount") != nil)
             {
-                cell.countsLabel.text = "\(textPfObject.valueForKey("likesCount")!)"
+                let likeCountAsString = "\(textPfObject.valueForKey("likesCount")!)"
+                cell.countsLabel.text = likeCountAsString + " likes"
             }
             else
             {
@@ -107,6 +108,18 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         vc.captionViaSegue = caption
         let imagePostFile = post["media"] as? PFFile
         vc.file = imagePostFile
+        
+        let poster = post.valueForKey("author") as? PFUser
+        vc.userClicked0 = poster
+        let posterUsername = poster?.username
+        vc.usernameViaSegue = posterUsername!
+        
+        let likes = post.valueForKey("likesCount")
+        let likesAsString = "\(likes!)"
+        vc.likesTextViaSegue = likesAsString + " likes"
+        
+        let userProfPic = poster!["ProfilePic"] as? PFFile
+        vc.fileProfile = userProfPic
         
     }
     func refreshControlGetPosts(refreshControl: UIRefreshControl)
