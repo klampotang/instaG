@@ -95,7 +95,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         getPosts()
         let vc = segue.destinationViewController as! DetailViewController
         let indexPath1 = tableView.indexPathForCell(sender as! FeedCell)
-        let post = self.instaposts[indexPath1!.row]
+        let post = self.instaposts[indexPath1!.section]
         
         
         let dateFormatter = NSDateFormatter()
