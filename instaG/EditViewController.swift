@@ -13,6 +13,8 @@ import MBProgressHUD
 
 
 class EditViewController: UIViewController {
+    
+    typealias Filter = CIImage -> CIImage
     var newpost: Post?
     
     @IBOutlet weak var captionTextField: UITextField!
@@ -26,16 +28,118 @@ class EditViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func TwirlPressed(sender: AnyObject) {
+        let filter = CIFilter(name: "CITwirlDistortion")
+        let imageSentCI = CIImage(image: imageSent)
+        filter!.setValue(imageSentCI, forKey: kCIInputImageKey)
+        //filter!.setValue(0, forKey: kCIInputIntensityKey)
+        
+        let context = CIContext(options:nil)
+        
+        let cgimg = context.createCGImage(filter!.outputImage!, fromRect: filter!.outputImage!.extent)
+        
+        let newImage = UIImage(CGImage: cgimg)
+        self.imageViewEdited.image = newImage
+        self.editedImage = newImage
+        
+    }
+    @IBAction func BumpPressed(sender: AnyObject) {
+        let filter = CIFilter(name: "CIBumpDistortion")
+        let imageSentCI = CIImage(image: imageSent)
+        filter!.setValue(imageSentCI, forKey: kCIInputImageKey)
+        //filter!.setValue(0, forKey: kCIInputIntensityKey)
+        
+        let context = CIContext(options:nil)
+        
+        let cgimg = context.createCGImage(filter!.outputImage!, fromRect: filter!.outputImage!.extent)
+        
+        let newImage = UIImage(CGImage: cgimg)
+        self.imageViewEdited.image = newImage
+        self.editedImage = newImage
+
+    }
+    @IBAction func BlurPressed(sender: AnyObject) {
+        let filter = CIFilter(name: "CIGaussianBlur")
+        let imageSentCI = CIImage(image: imageSent)
+        filter!.setValue(imageSentCI, forKey: kCIInputImageKey)
+        //filter!.setValue(0, forKey: kCIInputIntensityKey)
+        
+        let context = CIContext(options:nil)
+        
+        let cgimg = context.createCGImage(filter!.outputImage!, fromRect: filter!.outputImage!.extent)
+        
+        let newImage = UIImage(CGImage: cgimg)
+        self.imageViewEdited.image = newImage
+        self.editedImage = newImage
+
+    }
+    @IBAction func VignettePressed(sender: AnyObject) {
+        let filter = CIFilter(name: "CIVignette")
+        let imageSentCI = CIImage(image: imageSent)
+        filter!.setValue(imageSentCI, forKey: kCIInputImageKey)
+        //filter!.setValue(0, forKey: kCIInputIntensityKey)
+        
+        let context = CIContext(options:nil)
+        
+        let cgimg = context.createCGImage(filter!.outputImage!, fromRect: filter!.outputImage!.extent)
+        
+        let newImage = UIImage(CGImage: cgimg)
+        self.imageViewEdited.image = newImage
+        self.editedImage = newImage
+
+    }
+    @IBAction func PixellatePressed(sender: AnyObject) {
+        let filter = CIFilter(name: "CIPixellate")
+        let imageSentCI = CIImage(image: imageSent)
+        filter!.setValue(imageSentCI, forKey: kCIInputImageKey)
+        //filter!.setValue(0, forKey: kCIInputIntensityKey)
+        
+        let context = CIContext(options:nil)
+        
+        let cgimg = context.createCGImage(filter!.outputImage!, fromRect: filter!.outputImage!.extent)
+        
+        let newImage = UIImage(CGImage: cgimg)
+        self.imageViewEdited.image = newImage
+        self.editedImage = newImage
+
+    }
+    @IBAction func filter3Pressed(sender: AnyObject) {
+        let filter = CIFilter(name: "CIUnsharpMask")
+        let imageSentCI = CIImage(image: imageSent)
+        filter!.setValue(imageSentCI, forKey: kCIInputImageKey)
+        filter!.setValue(0, forKey: kCIInputIntensityKey)
+        
+        let context = CIContext(options:nil)
+        
+        let cgimg = context.createCGImage(filter!.outputImage!, fromRect: filter!.outputImage!.extent)
+        
+        let newImage = UIImage(CGImage: cgimg)
+        self.imageViewEdited.image = newImage
+        self.editedImage = newImage
+    }
+    @IBAction func filter2Pressed(sender: AnyObject) {
+        let filter = CIFilter(name: "CIUnsharpMask")
+        let imageSentCI = CIImage(image: imageSent)
+        filter!.setValue(imageSentCI, forKey: kCIInputImageKey)
+        filter!.setValue(0.5, forKey: kCIInputIntensityKey)
+        
+        let context = CIContext(options:nil)
+        
+        let cgimg = context.createCGImage(filter!.outputImage!, fromRect: filter!.outputImage!.extent)
+        
+        let newImage = UIImage(CGImage: cgimg)
+        self.imageViewEdited.image = newImage
+        self.editedImage = newImage
+    }
     @IBAction func filter1Pressed(sender: AnyObject) {
         let filter = CIFilter(name: "CISepiaTone")
         let imageSentCI = CIImage(image: imageSent)
         filter!.setValue(imageSentCI, forKey: kCIInputImageKey)
         filter!.setValue(0.5, forKey: kCIInputIntensityKey)
-
         let context = CIContext(options:nil)
-
+        
         let cgimg = context.createCGImage(filter!.outputImage!, fromRect: filter!.outputImage!.extent)
-
+        
         let newImage = UIImage(CGImage: cgimg)
         self.imageViewEdited.image = newImage
         self.editedImage = newImage
