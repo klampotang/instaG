@@ -95,11 +95,42 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             profilePic.layer.cornerRadius = profilePic.frame.height/2
             profilePic.clipsToBounds = true
             
-            
-            
         }
     }
-    
+    override func viewDidAppear(animated:Bool) {
+        super.viewDidAppear(true)
+        collectionView.dataSource = self
+        getUserPosts()
+        usernameLabel.text = PFUser.currentUser()?.username as String?
+        
+        // Initialize a UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshPull(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        collectionView.insertSubview(refreshControl, atIndex: 0)
+        //Check if a current profile picture already:
+        let currUser = PFUser.currentUser()
+        if(currUser!["ProfilePic"] == nil)
+        {
+            buttonSet.hidden = false
+        }
+        else
+        {
+            buttonSet.hidden = true
+            let currUser = PFUser.currentUser()
+            let profilePicFile = currUser!["ProfilePic"] as! PFFile
+            profilePic.file = profilePicFile
+            profilePic.loadInBackground()
+            
+            profilePic.layer.borderWidth = 1
+            profilePic.layer.masksToBounds = false
+            profilePic.layer.borderColor = UIColor.whiteColor().CGColor
+            profilePic.layer.cornerRadius = profilePic.frame.height/2
+            profilePic.clipsToBounds = true
+            
+        }
+        
+        
+    }
     func refreshPull(refreshControl: UIRefreshControl)
     {
         getUserPosts()

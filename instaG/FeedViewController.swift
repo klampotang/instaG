@@ -50,8 +50,55 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl.addTarget(self, action: #selector(refreshControlGetPosts(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
         tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
+        
+        /*if( traitCollection.forceTouchCapability == .Available){
+            registerForPreviewingWithDelegate(self, sourceView: view)
+        }*/
     }
-    
+    /*func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        var indexPath: NSIndexPath!
+        indexPath = tableView.index
+        let cell = tableView(tableView, cellForRowAtIndexPath: indexPath) as! FeedCell
+        guard let detailVC = storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as? DetailViewController else { return nil }
+        
+        getPosts()
+        let post = self.instaposts[indexPath!.row]
+        
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+        dateFormatter.timeStyle = .MediumStyle
+        
+        let dateString = "\(dateFormatter.stringFromDate(post.createdAt!))"
+        detailVC.dateViaSegue = dateString
+        let caption = (post.valueForKey("caption") as? String)!
+        detailVC.captionViaSegue = caption
+        let imagePostFile = post["media"] as? PFFile
+        detailVC.file = imagePostFile
+        
+        let poster = post.valueForKey("author") as? PFUser
+        detailVC.userClicked0 = poster
+        let posterUsername = poster?.username
+        detailVC.usernameViaSegue = posterUsername!
+        
+        let likes = post.valueForKey("likesCount")
+        let likesAsString = "\(likes!)"
+        detailVC.likesTextViaSegue = likesAsString + " likes"
+        
+        let userProfPic = poster!["ProfilePic"] as? PFFile
+        detailVC.fileProfile = userProfPic
+        
+        detailVC.preferredContentSize = CGSize(width: 0.0, height: 600)
+        previewingContext.sourceRect = cell.frame
+
+        return detailVC
+    }*/
+    /*func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        
+        showViewController(viewControllerToCommit, sender: self)
+        
+    }*/
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -121,6 +168,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let userProfPic = poster!["ProfilePic"] as? PFFile
         vc.fileProfile = userProfPic
         
+        vc.particularPost = post
+        
     }
     func refreshControlGetPosts(refreshControl: UIRefreshControl)
     {
@@ -130,8 +179,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Tell the refreshControl to stop spinning
         refreshControl.endRefreshing()
     }
-    @IBAction func likeTapped(sender: AnyObject) {
-        print("Hi")
+    @IBAction func likeTapped2(sender: AnyObject) {
         var indexPath: NSIndexPath!
         
         if let button = sender as? UIButton {
@@ -141,6 +189,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
         }
+        
         let cell1 = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! FeedCell
         
         let textPfObject = self.instaposts[indexPath.section]
@@ -162,19 +211,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("YAY")
             }
         }
-
+        
         
         let likesCountNum = textPfObject.valueForKey("likesCount")
         cell1.countsLabel.text = "\(likesCountNum!)"
         tableView.reloadData()
-        
-        
     }
     func getPosts()
     {
         let query = PFQuery(className: "Post")
         query.includeKey("author")
-        //query.includeKey("likesCount")
+        query.orderByDescending("createdAt")
         query.findObjectsInBackgroundWithBlock {(objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objects = objects {

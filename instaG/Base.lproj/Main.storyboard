@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -198,6 +199,10 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="WZh-ms-7Xn" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="8" width="375" height="343.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <gestureRecognizers/>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="UuV-j0-9Ng" appends="YES" id="TSc-5L-gRr"/>
+                                                    </connections>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VeL-yS-Lv6">
                                                     <rect key="frame" x="8" y="453" width="326" height="15.5"/>
@@ -211,7 +216,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="NewHeart"/>
                                                     <connections>
-                                                        <action selector="likeTapped:" destination="9O0-6D-sgr" eventType="touchUpInside" id="UOh-0L-7hk"/>
+                                                        <action selector="likeTapped2:" destination="9O0-6D-sgr" eventType="touchUpInside" id="IAl-0J-3UN"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kCz-ee-d6s">
@@ -246,7 +251,10 @@
                                             <outlet property="countsLabel" destination="kCz-ee-d6s" id="tUU-JP-C6Y"/>
                                             <outlet property="dateLabel" destination="VeL-yS-Lv6" id="flK-8y-gWT"/>
                                             <outlet property="instaPostPic" destination="WZh-ms-7Xn" id="id7-zu-cqc"/>
-                                            <segue destination="kG9-90-3i8" kind="push" id="uEl-Pg-qOL"/>
+                                            <segue destination="kG9-90-3i8" kind="push" id="eRV-DW-dmE">
+                                                <segue key="commit" inheritsFrom="parent" id="rkp-a8-fkW"/>
+                                                <segue key="preview" inheritsFrom="commit" id="QNa-Om-Krh"/>
+                                            </segue>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -260,6 +268,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kiA-EV-RxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="UuV-j0-9Ng"/>
             </objects>
             <point key="canvasLocation" x="1054.5" y="1100.5"/>
         </scene>
@@ -317,7 +326,7 @@
         <!--Detail View Controller-->
         <scene sceneID="EZ3-1p-edi">
             <objects>
-                <viewController id="kG9-90-3i8" customClass="DetailViewController" customModule="instaG" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="kG9-90-3i8" customClass="DetailViewController" customModule="instaG" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VPJ-x2-AR0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -339,6 +348,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="59j-Sh-g0s" customClass="PFImageView">
                                 <rect key="frame" x="12" y="120" width="350" height="293"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Liked1" id="aqe-GU-WUc">
                                 <rect key="frame" x="20" y="468" width="12" height="12"/>
@@ -537,4 +547,7 @@
         <image name="Upload" width="24" height="24"/>
         <image name="forward" width="48" height="48"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="eRV-DW-dmE"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -26,6 +26,7 @@ class DetailViewController: UIViewController {
     var likesTextViaSegue = ""
     var usernameViaSegue = ""
     var userClicked0 : PFUser?
+    var particularPost:PFObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,56 @@ class DetailViewController: UIViewController {
         vc.userClicked = userClicked0!
     }
 
-    
-
+    override func previewActionItems() -> [UIPreviewActionItem] {
+        
+        let likeAction = UIPreviewAction(title: "Like", style: .Default) { (action, viewController) -> Void in
+            self.like()
+            print("You liked the photo")
+        }
+        
+        let deleteAction = UIPreviewAction(title: "Cancel", style: .Destructive) { (action, viewController) -> Void in
+            print("Cancelled")
+        }
+        
+        return [likeAction, deleteAction]
+        
+    }
+    func like()
+    {
+        var currCount = 0
+        if(particularPost!.valueForKey("likesCount") == nil)
+        {
+            currCount = 0
+        }
+        else
+        {
+            currCount = particularPost!.valueForKey("likesCount") as! Int
+        }
+        particularPost!["likesCount"] = currCount + 1
+        particularPost!.saveInBackgroundWithBlock {
+            (succeeded: Bool, error: NSError?) -> Void in
+            if error != nil {
+                print("failed")
+            } else {
+                print("YAY")
+            }
+        }
+        
+        
+        let likesCountNum = particularPost!.valueForKey("likesCount")
+        likesLabelDetailScreen.text = "\(likesCountNum!)"
+    }
+    override func viewDidAppear(animated: Bool) {
+        let query = PFQuery(className: "Post")
+        do
+        {
+            let objectUpdated = try query.getObjectWithId((particularPost?.objectId)!)
+            let likesAsString0 = "\(objectUpdated["likesCount"])"
+            likesLabelDetailScreen.text = likesAsString0 + " likes"
+        }
+        catch
+        {
+            print("RIP")
+        }
+    }
 }
