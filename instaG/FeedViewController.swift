@@ -164,8 +164,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print("YAY")
             }
         }
-        
-        
         let likesCountNum = textPfObject.valueForKey("likesCount")
         cell1.countsLabel.text = "\(likesCountNum!)"
         tableView.reloadData()
