@@ -50,10 +50,6 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         refreshControl.addTarget(self, action: #selector(refreshControlGetPosts(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
         tableView.registerClass(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: HeaderViewIdentifier)
-        
-        /*if( traitCollection.forceTouchCapability == .Available){
-            registerForPreviewingWithDelegate(self, sourceView: view)
-        }*/
     }
     
     override func didReceiveMemoryWarning() {
